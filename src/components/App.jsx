@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { PhoneSection } from './PhoneForm/PhoneForm';
 import { ContactForm } from './Contacts/ContactSection';
 import { FilterSection } from './Filter/Filter';
@@ -43,38 +42,9 @@ export function App() {
         <PhoneSection onSubmit={onFormSubmit} />
         <FilterSection title={"Find contacts by name"} value={filterState} onChange={onChangeFilter}/>
         <h2 className='secondaryTitle'>Contacts</h2>
-        <ContactForm contacts={getFilteredContact()} onDeleteContact={deleteContact} />
-        {/* {(contactsState.items.length === 0)
+        {(contactsState.length === 0)
           ? (<h3 className='warningText'>No Contects in your PhoneBook</h3>)
-          : (<ContactForm contacts={getFilteredContact()} onDeleteContact={deleteContact} />)} */}
+          : (<ContactForm contacts={getFilteredContact()} onDeleteContact={deleteContact} />)}
       </>
     );
 }
-
-// const addContact = ({ name, number }) => {
-  //   try {
-  //     setContacts(contacts => {
-  //     if (contacts.find(contact => (contact.name.toLowerCase() === name.toLowerCase()))) {
-  //       alert(`${name} is already in contacts.`);
-  //       return [...contacts];
-  //     }
-  //     else {
-  //       const id = nanoid();
-  //       return [...contacts, { id: id, name, number }];
-  //     }
-  //   })
-      
-  //   } catch (error) {
-  //     console.log('error :>> ', error);
-  //   }
-  // };
-
-  // const getFilteredContact = () => {
-  //   const newContacts = contacts.filter(contact => contact.name.toString().toLowerCase().includes(filter));
-  //   return newContacts;
-  // }
-
-  // const deleteContact = (id) => {
-  //   const stateAfterRemove = contacts.filter(contact => contact.id !== id);
-  //   setContacts(stateAfterRemove);
-  // }
